@@ -1,28 +1,26 @@
-FROM runpod/pytorch:2.4.0-py3.11-cuda12.1-devel-ubuntu22.04
+# Use verified Runpod PyTorch image with bfloat16 support
+FROM runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
 
 WORKDIR /app
 
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
-    pkg-config \
     ffmpeg \
-    libavformat-dev \
-    libavcodec-dev \
-    libavdevice-dev \
-    libavutil-dev \
-    libavfilter-dev \
-    libswscale-dev \
-    libswresample-dev \
+    libsndfile1 \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy project files
 COPY . /app
 
+# Upgrade pip
 RUN pip install --upgrade pip
+
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# No need to expose a port for serverless handler
-# EXPOSE 8000
+# Copy checkpoint directory
+COPY checkpoints /app/checkpoints
 
-# Run the RunPod serverless handler script
 CMD ["python", "handler.py"]

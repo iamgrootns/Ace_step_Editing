@@ -1,4 +1,4 @@
-# ✅ CUDA 12.4.1 with cuDNN
+# CUDA 12.4.1 with cuDNN
 FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 
 WORKDIR /app

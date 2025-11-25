@@ -1,37 +1,4 @@
-# Core
-runpod==1.7.6
-requests==2.32.5
-
-# PyTorch (installed separately with CUDA in Dockerfile)
-# torch==2.9.1
-# torchvision==0.24.1
-# torchaudio==2.9.1
-
-# Audio
-soundfile==0.13.1
-librosa==0.11.0
-scipy==1.16.3
-numpy==2.3.4
-
-# HuggingFace
-huggingface_hub==0.36.0
-transformers==4.57.1
-diffusers==0.35.2
-accelerate==1.6.0
-datasets==3.4.1
-tokenizers==0.22.1
-safetensors==0.6.2
-peft==0.18.0
-
-# Utilities
-einops
-omegaconf
-sentencepiece
-protobuf
-tqdm
-fsspec
-tensorboard
-gradio
 torchcodec
-# ACEStep specific (if using pip install from GitHub)
-# ace_step==0.2.0
+runpod
+requests
+numpy==1.26.4
